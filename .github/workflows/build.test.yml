@@ -4,6 +4,7 @@ on:
   push:
   pull_request:
 
+#configured that on push just confirm with echo
 jobs:
   on-push:
     if: github.event_name == 'push'
@@ -14,6 +15,7 @@ jobs:
       - name: Echo message
         run: echo "Push detected"
 
+#on pull request build the project with maven (mvn clean install) which runs the tests as well
   on-pull-request:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest

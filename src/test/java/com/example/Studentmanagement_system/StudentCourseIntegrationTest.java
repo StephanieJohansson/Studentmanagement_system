@@ -16,6 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 // INTEGRATION TEST
 
+// add course to student and update student and course is the most important for my integrationtest since you're most
+// likely to add a course and update a student in a real life scenario etc.
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 // using my h2 test database
 @ActiveProfiles("test")
@@ -57,7 +60,7 @@ public class StudentCourseIntegrationTest {
         );
 
         // ASSERT
-        // controll status 200 OK
+        // control status 200 OK
         assertThat(response.getStatusCode().value()).isEqualTo(200);
 
         // control that course is linked to student
@@ -97,7 +100,7 @@ public class StudentCourseIntegrationTest {
         assertThat(linkResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         // ACT
-        // update studentdata
+        // update student data
         Map<String, Object> studentUpdates = new HashMap<>();
         studentUpdates.put("name", "Stephen King updated");
         studentUpdates.put("email", "King.updated@email.com");
@@ -111,7 +114,7 @@ public class StudentCourseIntegrationTest {
                 Student.class
         );
 
-        // update coursedata
+        // update course data
         Course updatedCourseData = Course.builder()
                 .name("Philosophy 104")
                 .code("PHIL104")
