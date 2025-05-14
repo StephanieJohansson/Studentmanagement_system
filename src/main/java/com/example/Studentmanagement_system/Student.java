@@ -31,11 +31,11 @@ public class Student {
     )
     private Set<Course> courses = new HashSet<>();
 
-    // Default (no-args) constructor
+    // (no-args) constructor
     public Student() {
     }
 
-    // Parameterized (all-args) constructor
+    // (all-args) constructor
     public Student(Long id, String name, String email, Set<Course> courses) {
         this.id = id;
         this.name = name;

@@ -26,11 +26,11 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 
-    // Default (no-args) constructor
+    // (no-args) constructor
     public Course() {
     }
 
-    // Parameterized (all-args) constructor
+    // (all-args) constructor
     public Course(Long id, String name, String code, Set<Student> students) {
         this.id = id;
         this.name = name;
