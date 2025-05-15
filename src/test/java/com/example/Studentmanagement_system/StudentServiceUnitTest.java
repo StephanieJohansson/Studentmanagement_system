@@ -14,18 +14,26 @@ import static org.mockito.Mockito.*;
 
 // UNIT TEST
 
+// these are some methods i think is important. to create a student and also test that you cant create a new student
+// with an already existing email. Get all students, get student by ID along with the scenario that the student ID
+// doesnt exists.
+
 // mockito integration
 @ExtendWith(MockitoExtension.class)
 public class StudentServiceUnitTest {
 
+    // mocked repo, this is the repo that will be tested
     @Mock
     private StudentRepository studentRepository;
 
+    // creating instance of the test-repo that automatically inject mocked versions of the dependencies
+    // this is great to isolate the test bc i dont need to manually handle dependency injection
     @InjectMocks
     private StudentService studentService;
 
     private Student student;
 
+    // set up for the test student
     @BeforeEach
     void setUp() {
         student = new Student();
@@ -34,6 +42,8 @@ public class StudentServiceUnitTest {
         student.setEmail("Benny.A@email.com");
     }
 
+    // when findAll is called return the list with students which is in this case just 1
+    // assert is verifying that 1 is correct and it run 1 time
     @Test
     void getAllStudentsShouldReturnAllStudents() {
         // Arrange
